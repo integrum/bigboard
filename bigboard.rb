@@ -8,26 +8,25 @@ content = "" # raw content of rss feed will be loaded here
 open(source) do |s| content = s.read end
 rss = RSS::Parser.parse(content, false)
 
-
 failed = rss.channel.items.select {|item| (item.title =~ /failed/) != nil }
-
 
 File.open("index.html", "w") do |file| 
 
 file.write "<html>\n"
 file.write "<head>\n"
-file.write "<LINK REL=StyleSheet HREF=\"style.css\" TYPE=\"text/css\" MEDIA=all>\n"
+file.write "<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" media=\"all\">\n"
 file.write "</head>\n"
 file.write "<body>\n"
 
 
-  failed.each do |item|
-    puts item.title
-    # item['description'][0] =~ /evision (\d+) committed by (\w+)/
-    # revision = $1
-    # committer = $2
-    # puts "#{revision} - #{committer}"
-    file.write "<ul>" + item.title + "</ul>\n" 
+  if failed.length == 0
+    file.write("<div id=\"good\">All is well!</div>\n")
+  else
+    file.write "<ul id=\"fail\">\n"
+    failed.each do |item|
+      file.write "<li>#{item.title}</ul>\n"
+    end
+    file.write "</ul>"
   end
 
 file.write "</body>\n"  

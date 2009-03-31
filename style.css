@@ -1,6 +1,23 @@
 body {
-  background-color: #B80800;
   color: #FFF;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 72px;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+#fail {
+  background-color: #B80800;
+  padding-top: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+#good {
+  background-color: green;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  text-align: center;
+  
 }
