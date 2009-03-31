@@ -24,7 +24,7 @@ file.write "<body>\n"
   else
     file.write "<ul id=\"fail\">\n"
     failed.each do |item|
-      file.write "<li>#{item.title}</li>\n"
+      file.write "<li>#{item.title.split(/ /)[0]}</li>\n"
     end
     file.write "</ul>"
   end
