@@ -17,17 +17,20 @@ file.write "<head>\n"
 file.write "<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" media=\"all\">\n"
 file.write "</head>\n"
 file.write "<body>\n"
-
+  file.write("<div id=\"container\" class=\"#{failed.length == 0 ? 'pass' : 'fail'}\">")
 
   if failed.length == 0
-    file.write("<div id=\"good\">All is well!</div>\n")
+    file.write("<div id=\"pass\">All is well!</div>\n")
   else
+    file.write("<div style=\"text-align: center\">FAIL!</div>\n")
     file.write "<ul id=\"fail\">\n"
     failed.each do |item|
       file.write "<li>#{item.title.split(/ /)[0]}</li>\n"
     end
     file.write "</ul>"
   end
+  
+  file.write("</div>")
 
 file.write "</body>\n"  
 file.write "</html>\n"  
