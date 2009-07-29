@@ -1,0 +1,14 @@
+To configure this app
+	Download and unzip JRuby
+	Place JRuby on your path
+	jruby -S gem install rawr
+	jruby -S gem install monkeybars
+	
+To run the app:
+	jruby src/main.rb
+	
+To deploy the app:
+	jruby -S rake rawr:bundle:app
+	An OS X .app file can be found in package/osx.
+	Copy this to any mac.
+	Double click to run (no dependencies)
