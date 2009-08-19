@@ -8,7 +8,10 @@ class FailsController < ApplicationController
     Thread.new do
       while true
         sleep 5
-        model.poll_fails
+        begin
+          model.poll_fails
+        rescue
+        end
         on_edt { update_view }
       end
     end
