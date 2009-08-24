@@ -10,9 +10,11 @@ class FailsController < ApplicationController
         sleep 5
         begin
           model.poll_fails
-        rescue
+          on_edt { update_view }
+        rescue => e
+          puts e
+          puts e.backtrace
         end
-        on_edt { update_view }
       end
     end
   end
