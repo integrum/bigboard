@@ -11,4 +11,15 @@ class FailsModel
     end
     @fails.flatten!
   end
+
+  # uncomment to test without a connection or see variations
+#  def poll_fails
+#    sleep(rand(10) + 1)
+#    if @empty
+#      @fails = []
+#    else
+#      @fails = %w{foo bar bazz}
+#    end
+#    @empty = !@empty
+#  end
 end

@@ -9,6 +9,7 @@ class FailsController < ApplicationController
       while true
         sleep 5
         begin
+          puts "polling"
           model.poll_fails
           on_edt { update_view }
         rescue => e

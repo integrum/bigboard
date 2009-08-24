@@ -37,5 +37,6 @@ class FailsView < ApplicationView
       end
     end
     @main_view_component.content_pane.revalidate
+    @main_view_component.content_pane.repaint
   end
 end
